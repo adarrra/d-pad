@@ -1,0 +1,17 @@
+{
+  "name": "d-pad",
+  "version": "0.0.1",
+  "description": "electron application to write down distractions",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "\"Electron\""
+  ],
+  "author": "Adara Belaya",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.4.1"
+  }
+}

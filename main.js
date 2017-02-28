@@ -1,45 +1,62 @@
-const electron = require('electron')
+const electron = require('electron');
 
-const {app, BrowserWindow, Menu, Tray} = require('electron')
+const {app, BrowserWindow, Menu, MenuItem, Tray} = require('electron');
 
-const path = require('path')
-const url = require('url')
+const path = require('path');
+const url = require('url');
 
-let tray = null
-let mainWindow
-
+let tray = null;
+let mainWindow;
 
 app.on('ready', () => {
-  console.log('ready')
-  tray = new Tray('./note.png')
-  tray.on('click', function(event, bounds) {
-    // problem on linux platforms! https://github.com/electron/electron/issues/1715 maybe i can subs on menu event
-    console.log('tray clicked')
-      if (mainWindow === null) {
-        createWindow(bounds)
-    }
-  })  
+    console.log('ready');
+    tray = new Tray('./note.png');
+    const contextMenu = new Menu();
 
-  function createWindow (bounds) {
-    console.log("BOUNDS", bounds)
-    mainWindow = new BrowserWindow({width: 800, height: 600})
+    tray.setContextMenu(contextMenu);
+    contextMenu.append(new MenuItem({label: 'MenuItem1', click() { console.log('item 1 clicked') }}))
 
-    mainWindow.loadURL(url.format({
-      pathname: path.join(__dirname, 'index.html'),
-      protocol: 'file:',
-      slashes: true
-    }))
+    let win = createWindow();
+    let contents = win.webContents;
 
-    mainWindow.on('closed', function () {
+
+    // window.addEventListener('contextmenu', (e) => {
+    //     console.log('CONTEXT');
+    //     // e.preventDefault()
+    // })
+
+    contents.executeJavaScript("window.addEventListener('contextmenu', function(e){console.log('CONTEXT');}'", true)
+    .then((result) => {
+    console.log(result) // Will be the JSON object from the fetch call
+});
+
+    tray.on('click', function (event, bounds) {
+        console.log('tray clicked');
+        if (mainWindow === null) {
+            createWindow(bounds);
+        }
+    });
+
+    function createWindow(bounds) {
+        console.log('BOUNDS', bounds);
+        mainWindow = new BrowserWindow({width: 800, height: 600});
+
+        mainWindow.loadURL(url.format({
+            pathname: path.join(__dirname, 'index.html'),
+            protocol: 'file:',
+            slashes: true
+        }));
+
+        mainWindow.on('closed', function () {
       // Dereference the window object, usually you would store windows
       // in an array if your app supports multi windows, this is the time
       // when you should delete the corresponding element.
-      mainWindow = null
-    })
-}
+            mainWindow = null;
+        });
+    }
 
 
-})
+});
 
 /*
 // Keep a global reference of the window object, if you don't, the window will

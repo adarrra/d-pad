@@ -6,16 +6,39 @@ const path = require('path')
 const url = require('url')
 
 let tray = null
+let mainWindow
+
+
 app.on('ready', () => {
+  console.log('ready')
   tray = new Tray('./note.png')
-  const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'},
-    {label: 'Item3', type: 'radio', checked: true},
-    {label: 'Item4', type: 'radio'}
-  ])
-  tray.setToolTip('This is my application.')
-  tray.setContextMenu(contextMenu)
+  tray.on('click', function(event, bounds) {
+    // problem on linux platforms! https://github.com/electron/electron/issues/1715 maybe i can subs on menu event
+    console.log('tray clicked')
+      if (mainWindow === null) {
+        createWindow(bounds)
+    }
+  })  
+
+  function createWindow (bounds) {
+    console.log("BOUNDS", bounds)
+    mainWindow = new BrowserWindow({width: 800, height: 600})
+
+    mainWindow.loadURL(url.format({
+      pathname: path.join(__dirname, 'index.html'),
+      protocol: 'file:',
+      slashes: true
+    }))
+
+    mainWindow.on('closed', function () {
+      // Dereference the window object, usually you would store windows
+      // in an array if your app supports multi windows, this is the time
+      // when you should delete the corresponding element.
+      mainWindow = null
+    })
+}
+
+
 })
 
 /*

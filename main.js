@@ -6,54 +6,61 @@ const path = require('path');
 const url = require('url');
 
 let tray = null;
-let mainWindow;
+let mainWindow = null;
+
+function createWindow() {
+    mainWindow = new BrowserWindow({
+      width: 600, 
+      height: 400,
+      title: 'Distraction pad',
+      backgroundColor: '#f6f175'
+    });
+
+    mainWindow.loadURL(url.format({
+        pathname: path.join(__dirname, 'index.html'),
+        protocol: 'file:',
+        slashes: true
+    }));
+
+    mainWindow.on('closed', function (e) {
+      e.preventDefault()
+      mainWindow.hide()
+    });
+}
+
+let template = [
+  {
+    label: 'Show pad',  
+    click: function() { 
+      if (mainWindow === null) {
+        console.log('undef')
+        mainWindow = createWindow();
+      } else {
+        console.log('def')
+        mainWindow.show();
+      }
+        mainWindow.focus();
+    }
+  },
+  {
+    label: 'Quit', 
+    accelerator: 'Command+Q'
+  },
+]
+
 
 app.on('ready', () => {
     console.log('ready');
     tray = new Tray('./note.png');
-    const contextMenu = new Menu();
 
+    const contextMenu = Menu.buildFromTemplate(template)
     tray.setContextMenu(contextMenu);
-    contextMenu.append(new MenuItem({label: 'MenuItem1', click() { console.log('item 1 clicked') }}))
+    tray.setToolTip('Put your distractions here...')
 
-    let win = createWindow();
-    let contents = win.webContents;
-
-
-    // window.addEventListener('contextmenu', (e) => {
-    //     console.log('CONTEXT');
-    //     // e.preventDefault()
-    // })
-
-    contents.executeJavaScript("window.addEventListener('contextmenu', function(e){console.log('CONTEXT');}'", true)
-    .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
-});
-
-    tray.on('click', function (event, bounds) {
-        console.log('tray clicked');
-        if (mainWindow === null) {
-            createWindow(bounds);
-        }
-    });
-
-    function createWindow(bounds) {
-        console.log('BOUNDS', bounds);
-        mainWindow = new BrowserWindow({width: 800, height: 600});
-
-        mainWindow.loadURL(url.format({
-            pathname: path.join(__dirname, 'index.html'),
-            protocol: 'file:',
-            slashes: true
-        }));
-
-        mainWindow.on('closed', function () {
-      // Dereference the window object, usually you would store windows
-      // in an array if your app supports multi windows, this is the time
-      // when you should delete the corresponding element.
-            mainWindow = null;
-        });
-    }
+//     contents.executeJavaScript("window.addEventListener('contextmenu', function(e){console.log('CONTEXT');}'", true)
+//     .then((result) => {
+//     console.log(result) // Will be the JSON object from the fetch call
+// });
 
 
 });

@@ -1,19 +1,17 @@
-const electron = require('electron');
-
 const {app, BrowserWindow, Menu, MenuItem, Tray} = require('electron');
 
 const path = require('path');
 const url = require('url');
 
 let tray = null;
-let mainWindow = null;
+var mainWindow = null;
 
 function createWindow() {
     mainWindow = new BrowserWindow({
-      width: 400, 
-      height: 200,
-      title: 'Distraction pad',
-      backgroundColor: '#f6f175'
+        width: 400,
+        height: 200,
+        title: 'Distraction pad',
+        backgroundColor: '#f6f175'
     });
 
     mainWindow.loadURL(url.format({
@@ -22,41 +20,43 @@ function createWindow() {
         slashes: true
     }));
 
-    mainWindow.onbeforeunload =  function (e) {
-      e.preventDefault()
-      console.log('why are you destroing')
-      mainWindow.hide()
-    };
+    mainWindow.on('close',function (e) {
+        e.preventDefault();
+        this.hide();
+    });
 }
 
 let template = [
-  {
-    label: 'Show pad',  
-    click: function() { 
-        mainWindow.show();
-        mainWindow.focus();
-        // add accelerator
-        // how to deal with minimize/maximize
-    }
-  },
-  {
-    label: 'Quit', 
-    accelerator: 'Command+Q',
-    click: function () {
-      mainWindow.close();
-    }
-  },
-]
+    {
+        label: 'Show pad',
+        click: function () {
+            if (mainWindow.isMinimized()) {
+                mainWindow.maximize();
+            } else {
+                mainWindow.show();
+            }
+            mainWindow.focus();
+
+        }
+    },
+    {
+        label: 'Quit',
+        accelerator: 'Command+Q',
+        click: function () {
+            mainWindow.close();
+        }
+    },
+];
 
 
 app.on('ready', () => {
     console.log('ready');
     tray = new Tray('./note.png');
 
-    const contextMenu = Menu.buildFromTemplate(template)
-    tray.setContextMenu(contextMenu);
-    tray.setToolTip('Put your distractions here...')
     mainWindow = createWindow();
+    const contextMenu = Menu.buildFromTemplate(template);
+    tray.setContextMenu(contextMenu);
+    tray.setToolTip('Put your distractions here...');
 
 //     contents.executeJavaScript("window.addEventListener('contextmenu', function(e){console.log('CONTEXT');}'", true)
 //     .then((result) => {

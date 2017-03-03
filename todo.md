@@ -1,3 +1,7 @@
+- add icon to .. when alt-tab
+
+
+- nice `pkill -9 electron`
 - electron api demos http://electron.atom.io/
 - check https://www.youtube.com/watch?v=QkfXZ2IFIck, https://atomio.slack.com/messages/electron/    
 - docs http://electron.atom.io/docs/api/tray/ , https://electron.atom.io/docs/api/browser-window/

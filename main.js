@@ -10,8 +10,8 @@ let mainWindow = null;
 
 function createWindow() {
     mainWindow = new BrowserWindow({
-      width: 600, 
-      height: 400,
+      width: 400, 
+      height: 200,
       title: 'Distraction pad',
       backgroundColor: '#f6f175'
     });
@@ -22,29 +22,29 @@ function createWindow() {
         slashes: true
     }));
 
-    mainWindow.on('closed', function (e) {
+    mainWindow.onbeforeunload =  function (e) {
       e.preventDefault()
+      console.log('why are you destroing')
       mainWindow.hide()
-    });
+    };
 }
 
 let template = [
   {
     label: 'Show pad',  
     click: function() { 
-      if (mainWindow === null) {
-        console.log('undef')
-        mainWindow = createWindow();
-      } else {
-        console.log('def')
         mainWindow.show();
-      }
         mainWindow.focus();
+        // add accelerator
+        // how to deal with minimize/maximize
     }
   },
   {
     label: 'Quit', 
-    accelerator: 'Command+Q'
+    accelerator: 'Command+Q',
+    click: function () {
+      mainWindow.close();
+    }
   },
 ]
 
@@ -56,6 +56,7 @@ app.on('ready', () => {
     const contextMenu = Menu.buildFromTemplate(template)
     tray.setContextMenu(contextMenu);
     tray.setToolTip('Put your distractions here...')
+    mainWindow = createWindow();
 
 //     contents.executeJavaScript("window.addEventListener('contextmenu', function(e){console.log('CONTEXT');}'", true)
 //     .then((result) => {

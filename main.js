@@ -4,15 +4,17 @@ const path = require('path');
 const url = require('url');
 
 let tray = null;
-var mainWindow = null;
+let mainWindow = null;
 
 function createWindow() {
+
     mainWindow = new BrowserWindow({
         width: 400,
         height: 200,
         title: 'Distraction pad',
         backgroundColor: '#f6f175'
     });
+
 
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'index.html'),
@@ -21,6 +23,7 @@ function createWindow() {
     }));
 
     mainWindow.on('close',function (e) {
+
         e.preventDefault();
         this.hide();
     });
@@ -30,11 +33,7 @@ let template = [
     {
         label: 'Show pad',
         click: function () {
-            if (mainWindow.isMinimized()) {
-                mainWindow.maximize();
-            } else {
-                mainWindow.show();
-            }
+            mainWindow.show();
             mainWindow.focus();
 
         }
@@ -43,7 +42,7 @@ let template = [
         label: 'Quit',
         accelerator: 'Command+Q',
         click: function () {
-            mainWindow.close();
+            app.exit()
         }
     },
 ];
@@ -53,7 +52,7 @@ app.on('ready', () => {
     console.log('ready');
     tray = new Tray('./note.png');
 
-    mainWindow = createWindow();
+    createWindow();
     const contextMenu = Menu.buildFromTemplate(template);
     tray.setContextMenu(contextMenu);
     tray.setToolTip('Put your distractions here...');

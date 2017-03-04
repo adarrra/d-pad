@@ -11,6 +11,7 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 400,
         height: 200,
+        icon: './icons/128x128.png',
         title: 'Distraction pad',
     });
 
@@ -52,7 +53,7 @@ let template = [
 
 app.on('ready', () => {
     console.log('ready');
-    tray = new Tray('./note.png');
+    tray = new Tray('./icons/32x32.png');
 
     createWindow();
     const contextMenu = Menu.buildFromTemplate(template);

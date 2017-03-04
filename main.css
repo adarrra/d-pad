@@ -1,0 +1,21 @@
+html, body, .text-field {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.text-field {
+    width: 100%;
+    background-color: #f6f175;
+    margin: 0;
+    padding: 15px;
+    border: 0;
+    display: block;
+}
+
+.text-field:focus {
+    outline: 0;
+}

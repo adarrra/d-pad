@@ -1,4 +1,5 @@
 - add icon to .. when alt-tab
+- check! HOW many memory this eat..
 
 
 - nice `pkill -9 electron`

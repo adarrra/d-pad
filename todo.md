@@ -1,4 +1,6 @@
-- check! HOW many memory this eat..
+- ASK someoen for review... ~~check! HOW many memory this eat~~ approx 100M - 150M...
+- check builds for mac and windows
+- how to upload large files? check https://git-lfs.github.com/
 
 
 - nice `pkill -9 electron`
@@ -14,3 +16,6 @@
 - BAD NEWS about ubuntu limitations: click event, tooltip... https://github.com/electron/electron/issues/6773 , https://unity.ubuntu.com/projects/appindicators/б https://bugs.launchpad.net/ubuntu/+source/libappindicator/+bug/522152
 - How can I get tray position... arrrrrrrrrrr It seems electron not SO sweet for ubuntu...
 
+#### sources for further
+- electron-awesome
+- https://github.com/electron-userland

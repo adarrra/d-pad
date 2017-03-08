@@ -1,9 +1,5 @@
 node_modules
 
-# ignore unzipped files
-# builds/*/
-# after I deal with large files
-
-builds/*
-!builds/*.gitkeep
+# ignore builds, git lfs track zips
+builds/*/
 .eslintrc.js

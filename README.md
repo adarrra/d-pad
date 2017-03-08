@@ -1,0 +1,14 @@
+# d-pad
+
+d-pad (distractions pad) - small application works well with **Pomodoro technique**.  
+This is micro notepad with the icon in a tray that **not save anything**.  
+When you work for short periods with a high concentration it can be useful put distractive thoughts there.  
+All text will be deleted after exit.  
+The app was developed for **Ubuntu** but also works on **Windows** and **MacOS**.
+
+# How to use
+Download build for yor system from [`builds/`](https://github.com/adarrra/d-pad/tree/master/builds) folder
+
+# Developing
+
+Clone repo and run `npm run package-lin` or `package-win` or `package-mac` 

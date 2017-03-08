@@ -10,8 +10,8 @@
   "author": "Adara Belaya",
   "license": "ISC",
   "scripts": {
-    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=icons/macos/512x512.png.hqx --prune=true --out=builds && zip -r ./builds/d-pad-mac-darwin.zip builds/d-pad-darwin-x64",
-    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=icons/windows/512x512.png.ico --prune=true --out=builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"d-pad\" && zip -r ./builds/d-pad-win32.zip builds/d-pad-win32-ia32",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=icons/macos/128x128.icns --prune=true --out=builds && zip -r ./builds/d-pad-mac-darwin.zip builds/d-pad-darwin-x64",
+    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=icons/windows/128x128.ico --prune=true --out=builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"d-pad\" && zip -r ./builds/d-pad-win32.zip builds/d-pad-win32-ia32",
     "package-linux" : "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/128x128.png --prune=true --out=builds && zip -r ./builds/d-pad-linux-64.zip builds/d-pad-linux-x64"
   },
   "devDependencies": {

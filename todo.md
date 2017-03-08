@@ -12,6 +12,8 @@
         - icon from http://www.flaticon.com/free-icon/check-mark_304437#term=notepad&page;=1&position;=51
         - https://iconverticons.com/online/
         - https://www.christianengvall.se/electron-app-icons/
+        - http://electron.rocks/proper-tray-icon/
+        - https://cloudconvert.com/png-to-anything
 - ? some hot reload?
 - BAD NEWS about ubuntu limitations: click event, tooltip... https://github.com/electron/electron/issues/6773 , https://unity.ubuntu.com/projects/appindicators/б https://bugs.launchpad.net/ubuntu/+source/libappindicator/+bug/522152
 - How can I get tray position... arrrrrrrrrrr It seems electron not SO sweet for ubuntu...

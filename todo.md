@@ -1,4 +1,5 @@
 - WIN tray options?? Win 7 have issues... Check
+- Mac: certificate problems https://github.com/electron-userland/electron-builder/issues/740
 - try https://github.com/electron-userland/electron-builder
 - check builds for mac and windows
 - check https://www.youtube.com/watch?v=QkfXZ2IFIck, https://atomio.slack.com/messages/electron/    

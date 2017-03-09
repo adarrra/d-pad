@@ -1,3 +1,4 @@
+- WIN tray options?? Win 7 have issues... Check
 - try https://github.com/electron-userland/electron-builder
 - check builds for mac and windows
 - check https://www.youtube.com/watch?v=QkfXZ2IFIck, https://atomio.slack.com/messages/electron/    

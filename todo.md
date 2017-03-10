@@ -3,6 +3,7 @@
         https://github.com/electron-userland/electron-builder/issues/740
         http://jbavari.github.io/blog/2015/08/14/codesigning-electron-applications/
         https://github.com/electron-userland/electron-builder/wiki/Code-Signing#how-to-export-certificate-on-macos
+ - Mac: icon in tray, problem with quit..
               
 - try https://github.com/electron-userland/electron-builder
 - check builds for mac and windows

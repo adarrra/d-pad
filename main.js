@@ -16,7 +16,11 @@ app.on('ready', () => {
 });
 
 function getTrayIcon() {
-    if (platform == 'darwin') {  
+    if (platform == 'darwin') {
+        // show pad on click on dock icon  
+        app.on('activate', () => {
+            mainWindow.show();
+        })
         return path.join(__dirname, '/icons/macos/menubar.png');
     }
     else if (platform == 'win32') {  

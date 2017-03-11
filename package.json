@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "electron application to write down distractions",
   "productName": "d-pad",
+  "repository": "https://github.com/adarrra/d-pad",
   "main": "main.js",
   "keywords": [
     "\"Electron\""

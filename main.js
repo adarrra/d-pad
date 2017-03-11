@@ -17,7 +17,7 @@ app.on('ready', () => {
 
 function getTrayIcon() {
     if (platform == 'darwin') {  
-        return path.join(__dirname, '/icons/macos/32x32.png');
+        return path.join(__dirname, '/icons/macos/menubar.png');
     }
     else if (platform == 'win32') {  
         return path.join(__dirname, '/icons/windows/128x128.ico');

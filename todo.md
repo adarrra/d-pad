@@ -3,7 +3,8 @@
         https://github.com/electron-userland/electron-builder/issues/740
         http://jbavari.github.io/blog/2015/08/14/codesigning-electron-applications/
         https://github.com/electron-userland/electron-builder/wiki/Code-Signing#how-to-export-certificate-on-macos
- - Mac: icon in tray, problem with quit..
+- sometimes icon stayed in dock
+ - Mac: ~~icon in tray~~, oh it's tricky, you should have <name>.png 16x16,  <name>@2x.png 32x32 
               
 - try https://github.com/electron-userland/electron-builder
 - check builds for mac and windows

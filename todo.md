@@ -1,4 +1,4 @@
-- WIN tray options?? Win 7 have issues... Check
+- WIN tray options?? Win 7 have issues... Add show on leftClick, quit command inside window
 - Mac: electron mac os unidentified developer 
         https://github.com/electron-userland/electron-builder/issues/740
         http://jbavari.github.io/blog/2015/08/14/codesigning-electron-applications/

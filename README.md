@@ -13,3 +13,5 @@ Download build for yor system from [`builds/`](https://github.com/adarrra/d-pad/
 # Developing
 
 Clone repo and run `npm run package-lin` or `package-win` or `package-mac` 
+
+![screenshot](https://raw.githubusercontent.com/adarrra/d-pad/master/d-pad-screen.png)

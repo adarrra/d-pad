@@ -1,4 +1,5 @@
 - super useful article!! [Desktop Environment Integration](https://electron.atom.io/docs/tutorial/desktop-environment-integration/#unity-launcher-shortcuts-linux)
+- useful: https://blog.dcpos.ch/how-to-make-your-electron-app-sexy (crash rep, auto upd)
 - How to bebug build? Some logs...? 
     - https://electron.atom.io/docs/api/crash-reporter/
     - http://maxsavenkov.livejournal.com/189460.html
@@ -6,7 +7,7 @@
 - Ub: quit on click in "dock"? 
     - https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher
 - Stefan suggestions about releases
-- Mac: quit on click on dock icon
+- Mac: quit on click on dock icon https://electron.atom.io/docs/api/menu/ (in the end notes about mac)
 - WIN tray options?? Win 7 have issues... Add show on leftClick, quit command inside window
 - ignore files in builds properly 
 

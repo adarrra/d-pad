@@ -10,7 +10,7 @@ app.on('ready', () => {
     const tray = new Tray(getTrayIcon());
 
     createWindow();
-    const contextMenu = Menu.buildFromTemplate(template);
+    const contextMenu = Menu.buildFromTemplate(trayMenuTemplate);
     tray.setContextMenu(contextMenu);
     tray.setToolTip('Put your distractions here...');
 });
@@ -21,6 +21,7 @@ function getTrayIcon() {
         app.on('activate', () => {
             mainWindow.show();
         });
+        app.dock.setMenu(Menu.buildFromTemplate(dockMenuTemplate));
         return path.join(__dirname, '/icons/macos/menubar.png');
     } else if (platform === 'win32') {
         return path.join(__dirname, '/icons/windows/128x128.ico');
@@ -55,7 +56,7 @@ function createWindow() {
     });
 }
 
-let template = [
+let trayMenuTemplate = [
     {
         label: 'Show pad',
         click: function () {
@@ -64,6 +65,16 @@ let template = [
 
         }
     },
+    {
+        label: 'Quit',
+        accelerator: 'Command+Q',
+        click: function () {
+            app.exit();
+        }
+    },
+];
+
+let dockMenuTemplate = [
     {
         label: 'Quit',
         accelerator: 'Command+Q',

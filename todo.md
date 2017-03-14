@@ -1,3 +1,7 @@
+- How to bebug build? Some logs...?
+- Ub: quit on click in "dock"?
+- Stefan suggestions about releases
+- Mac: quit on click on dock icon
 - WIN tray options?? Win 7 have issues... Add show on leftClick, quit command inside window
 - Mac: electron mac os unidentified developer 
         https://github.com/electron-userland/electron-builder/issues/740

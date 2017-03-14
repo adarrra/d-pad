@@ -1,5 +1,5 @@
 const {app, BrowserWindow, Menu, Tray} = require('electron');
-const platform = require('os').platform();  
+const platform = require('os').platform();
 const path = require('path');
 const url = require('url');
 
@@ -16,17 +16,15 @@ app.on('ready', () => {
 });
 
 function getTrayIcon() {
-    if (platform == 'darwin') {
-        // show pad on click on dock icon  
+    if (platform === 'darwin') {
+        // show pad on click on dock icon
         app.on('activate', () => {
             mainWindow.show();
-        })
+        });
         return path.join(__dirname, '/icons/macos/menubar.png');
-    }
-    else if (platform == 'win32') {  
+    } else if (platform === 'win32') {
         return path.join(__dirname, '/icons/windows/128x128.ico');
-    }
-    else if (platform == 'linux') {
+    } else if (platform === 'linux') {
         return path.join(__dirname, '/icons/32x32.png');
     }
 }
@@ -47,7 +45,7 @@ function createWindow() {
         slashes: true
     }));
 
-    // for debug: 
+    // for debug:
     // mainWindow.webContents.openDevTools();
 
     mainWindow.on('close',function (e) {
@@ -58,7 +56,7 @@ function createWindow() {
 }
 
 let template = [
-    {   
+    {
         label: 'Show pad',
         click: function () {
             mainWindow.show();
@@ -74,5 +72,3 @@ let template = [
         }
     },
 ];
-
-

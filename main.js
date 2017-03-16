@@ -25,7 +25,7 @@ function getTrayIcon() {
     } else if (platform === 'win32') {
         return path.join(__dirname, '/icons/windows/128x128.ico');
     } else if (platform === 'linux') {
-        return path.join(__dirname, '/icons/32x32.png');
+        return path.join(__dirname, '/icons/linux/32x32.png');
     }
 }
 
@@ -34,7 +34,7 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 400,
         height: 200,
-        icon: path.join(__dirname, '/icons/128x128.png'),
+        icon: path.join(__dirname, '/icons/linux/128x128.png'),
         title: 'd-pad',
         backgroundColor: '#f6f175', // for loading screen
     });

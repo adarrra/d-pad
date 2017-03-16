@@ -1,7 +1,6 @@
 - upd build, test on all platforms, use release tab
-- answer my own question on atom-electron
+- decrease builds sizes if it possible
 - all: right click??
-- mac - build need to delete sometimes. why?
 - mac: https://pracucci.com/atom-electron-enable-copy-and-paste.html
 - super useful article!! [Desktop Environment Integration](https://electron.atom.io/docs/tutorial/desktop-environment-integration/#unity-launcher-shortcuts-linux)
 - useful: https://blog.dcpos.ch/how-to-make-your-electron-app-sexy (crash rep, auto upd)

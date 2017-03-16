@@ -21,7 +21,8 @@ function getTrayIcon() {
         app.on('activate', () => {
             mainWindow.show();
         });
-        app.dock.setMenu(Menu.buildFromTemplate(dockMenuTemplate));
+       // app.dock.setMenu(Menu.buildFromTemplate(dockMenuTemplate));
+        Menu.setApplicationMenu(Menu.buildFromTemplate(macMenuTemplate))
         return path.join(__dirname, '/icons/macos/menubar.png');
     } else if (platform === 'win32') {
         return path.join(__dirname, '/icons/windows/128x128.ico');
@@ -37,6 +38,7 @@ function createWindow() {
         height: 200,
         icon: path.join(__dirname, '/icons/128x128.png'),
         title: 'd-pad',
+        backgroundColor: '#f6f175', // for loading screen
     });
 
 
@@ -83,3 +85,22 @@ let dockMenuTemplate = [
         }
     },
 ];
+
+    var macMenuTemplate = [{
+        label: "Application",
+        submenu: [
+            { label: "About Application", selector: "orderFrontStandardAboutPanel:" },
+            { type: "separator" },
+            { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
+        ]}, {
+        label: "Edit",
+        submenu: [
+            { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
+            { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+            { type: "separator" },
+            { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
+            { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+            { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+            { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+        ]}
+    ];

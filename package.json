@@ -17,7 +17,7 @@
     "package-linux" : "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/128x128.png --prune=true --ignore='npm-debug.log|eslintrc\\.js|d-pad-screen\\.png|\\.git(ignore|attributes)|\\.vscode' --out=builds && zip -r ./builds/d-pad-linux-64.zip builds/d-pad-linux-x64"
   },
   "devDependencies": {
-    "electron": "^1.4.1",
+    "electron": "^9.1.0",
     "electron-packager": "^8.5.2"
   }
 }
